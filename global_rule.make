@@ -3,6 +3,7 @@ PLATFORM = mini
 export CROSS =
 export KIMAGE = MINI_KIMAGE
 export RIMAGE = MINI_RIMAGE
+export ISO = $(PLATFORM).iso
 export ARCH = x86
 export KERNEL = linux-2.6.29
 export ROOTFS_TYPE = ext2fs
