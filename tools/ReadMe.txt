@@ -18,3 +18,5 @@ VMS Alpha executable
 [UBI]
 HIT archive data
 
+[ISO]
+ISO 9660 CD-ROM filesystem data

@@ -15,6 +15,7 @@ export RANLIB = $(CROSS)ranlib
 export STRIP = $(CROSS)strip
 export NM = $(CROSS)nm
 export LD = $(CROSS)ld
+export MV = mv
 export LN = ln
 export RM = rm -f
 export CP = cp -f
