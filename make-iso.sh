@@ -20,7 +20,6 @@ fi
 cp -f $CDIMAGE_DIR/isolinux/isolinux.bin $CDIMAGE_DIR/isolinux/isolinux.bin.tmp
 cp -f $KIMAGE $CDIMAGE_DIR/isolinux/vmlinuz
 cp -f $RIMAGE $CDIMAGE_DIR/isolinux/rootfs.gz
-cp -f $RIMAGE $CDIMAGE_DIR/rootfs.gz
 
 chmod -R +w ./$CDIMAGE_DIR
 mkisofs -o $ISO \
@@ -36,6 +35,5 @@ mkisofs -o $ISO \
 rm -f $CDIMAGE_DIR/isolinux/isolinux.bin.tmp
 rm -f $CDIMAGE_DIR/isolinux/vmlinuz
 rm -f $CDIMAGE_DIR/isolinux/rootfs.gz
-rm -f $CDIMAGE_DIR/rootfs.gz
 
 echo "ISO generated in $ISO"
