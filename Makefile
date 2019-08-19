@@ -25,10 +25,10 @@ clean:
 
 help:
 	@$(ECHO) "ARCH          = $(ARCH) [$(PLATFORM)]"
-	@$(ECHO) "Cross Compile = `which $(CROSS)gcc`"
+	@$(ECHO) "Compile       = `which gcc`"
 	@$(ECHO) "Kernel Image  = $(KIMAGE)"
 	@$(ECHO) "Root-FS Image = $(RIMAGE)"
 	@$(ECHO) "ISO Image     = $(ISO)"
-	@$(ECHO) ""
+	@$(ECHO)
 
 .PHONY: build config clean

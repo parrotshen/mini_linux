@@ -1,6 +1,5 @@
 PLATFORM = mini
 
-export CROSS =
 export KIMAGE = MINI_KIMAGE
 export RIMAGE = MINI_RIMAGE
 export ISO = $(PLATFORM).iso
@@ -8,13 +7,13 @@ export ARCH = x86
 export KERNEL = linux-2.6.29
 export ROOTFS_TYPE = ext2fs
 
-export CC = $(CROSS)gcc
-export AR = $(CROSS)ar
-export OBJDUMP = $(CROSS)objdump
-export RANLIB = $(CROSS)ranlib
-export STRIP = $(CROSS)strip
-export NM = $(CROSS)nm
-export LD = $(CROSS)ld
+export CC = "gcc -m32"
+export AR = ar
+export OBJDUMP = objdump
+export RANLIB = ranlib
+export STRIP = strip
+export NM = nm
+export LD = ld
 export MV = mv
 export LN = ln
 export RM = rm -f
