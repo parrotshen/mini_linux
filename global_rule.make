@@ -1,4 +1,4 @@
-PLATFORM = mini
+PLATFORM = mini_linux
 
 export KIMAGE = MINI_KIMAGE
 export RIMAGE = MINI_RIMAGE
