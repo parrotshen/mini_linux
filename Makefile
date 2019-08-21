@@ -20,7 +20,7 @@ iso: config
 
 clean:
 	sudo $(RM) -r $(ROOTFS_DIR)
-	$(RM) cdimage
+	$(RM) -r cdimage
 	$(RM) $(RIMAGE)
 	$(RM) $(ISO)
 
