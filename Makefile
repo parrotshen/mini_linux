@@ -25,7 +25,7 @@ clean:
 	$(RM) $(ISO)
 
 help:
-	@$(ECHO) "ARCH          = $(ARCH) [$(PLATFORM)]"
+	@$(ECHO) "ARCH          = $(ARCH) (32-bit)"
 	@$(ECHO) "Compile       = `which gcc`"
 	@$(ECHO) "Kernel Image  = $(KIMAGE)"
 	@$(ECHO) "Root-FS Image = $(RIMAGE)"
