@@ -6,6 +6,7 @@ export ISO = $(PLATFORM).iso
 export ARCH = x86
 export KERNEL = linux-2.6.29
 export ROOTFS_TYPE = ext2fs
+export ROOTFS_DIR = target-root
 
 export CC = "gcc -m32"
 export AR = ar

@@ -1,6 +1,5 @@
 include global_rule.make
 
-ROOTFS_DIR = target-root
 
 all: build
 

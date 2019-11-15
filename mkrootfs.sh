@@ -4,6 +4,7 @@
 ## following variables are defined in global_rule.make
 ## $PLATFORM
 ## $RIMAGE
+## $ROOTFS_DIR
 ##
 WORKDIR=`pwd`
 
@@ -11,7 +12,7 @@ RAMDISK=ramdisk.gz
 RAMDISK_SIZE=131072
 RAMROOTFS=$WORKDIR/ramrootfs
 
-ROOTFSLOC=$WORKDIR/target-root
+ROOTFSLOC=$WORKDIR/$ROOTFS_DIR
 IMAGETMP=$WORKDIR/.rtmp
 
 ## flag for kernel module stripped
