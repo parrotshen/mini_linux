@@ -15,9 +15,6 @@ RAMROOTFS=$WORKDIR/ramrootfs
 ROOTFSLOC=$WORKDIR/$ROOTFS_DIR
 IMAGETMP=$WORKDIR/.rtmp
 
-## flag for kernel module stripped
-STRIPFLAG=--strip-debug
-
 
 #======================= main =========================
 if [ -d $ROOTFSLOC ]; then
@@ -47,10 +44,10 @@ if [ -f $RAMROOTFS ]; then
 fi
 
 dd if=/dev/zero of=$RAMROOTFS bs=1k count=$RAMDISK_SIZE
-sudo /sbin/mke2fs -F -m 0 -i 2000  $RAMROOTFS
-sudo /sbin/tune2fs -c 0 $RAMROOTFS
+sudo /sbin/mkfs.ext3 -I 128  $RAMROOTFS
+sudo /sbin/tune2fs -c 0 -i 0 $RAMROOTFS
 sleep 1
-sudo mount -o loop -t ext2 $RAMROOTFS $IMAGETMP
+sudo mount -o loop -t ext3 $RAMROOTFS $IMAGETMP
 sudo cp -af $ROOTFSLOC/* $IMAGETMP/
 
 sudo umount $IMAGETMP
