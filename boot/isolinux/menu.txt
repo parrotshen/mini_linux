@@ -1,0 +1,7 @@
+
+USB bootable flash disk.
+
+1) Linux - MINI (RAM Disk)
+2) Memory Test
+3) Local Boot
+

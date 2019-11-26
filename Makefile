@@ -1,27 +1,31 @@
 include global_rule.make
 
 
-all: build
-
-config:
-	@test -d $(ROOTFS_DIR) || sudo tar xzf $(ROOTFS_DIR).tgz -C .
-	@$(CHMOD) +x *.sh
-
-build: config
+all: err
 	@echo "Enter your password to get the root privilege."
 	@sudo echo dummy > /dev/null || \
         (echo "Get root privilege failure! Plz Ctrl-C."; exit 1) && \
         (echo "Get root privilege success."; sleep 1)
 	@./mkrootfs.sh || exit 1
 
-iso: config
+err:
+	@test -n $(BASE_DIR) || \
+        (echo "Please \"source setup.mini_linux\" first !!"; exit 1)
+	@test -d $(ROOTFS_DIR) || \
+        (echo "Please \"make config\" first !!"; exit 1)
+
+config:
+	@$(MAKE) -C rootfs
+	@$(CHMOD) +x *.sh
+
+iso:
 	@./make-iso.sh || exit 1
 
 clean:
 	sudo $(RM) -r $(ROOTFS_DIR)
-	$(RM) -r cdimage
-	$(RM) $(RIMAGE)
-	$(RM) $(ISO)
+	$(RM) -r $(CDIMAGE_DIR)
+	$(RM) ./boot/$(RIMAGE)
+	$(RM) ./boot/$(ISO)
 
 help:
 	@$(ECHO) "ARCH          = $(ARCH) (32-bit)"
@@ -31,4 +35,4 @@ help:
 	@$(ECHO) "ISO Image     = $(ISO)"
 	@$(ECHO)
 
-.PHONY: build config clean
+.PHONY: build config iso clean help

@@ -4,8 +4,15 @@ export KIMAGE = MINI_KIMAGE
 export RIMAGE = MINI_RIMAGE
 export ISO = $(PLATFORM).iso
 export ARCH = x86
-export ROOTFS_TYPE = ext2fs
 export ROOTFS_DIR = target-root
+export CDIMAGE_DIR = cdimage
+
+KERNEL_VER  = 2.6.29
+KERNEL_SRC  = linux-$(KERNEL_VER)
+KERNEL_DIR  = $(BASE_DIR)/kernel/$(KERNEL_SRC)
+KERNEL_CONF = i386_defconfig-$(KERNEL_VER)
+
+PWD = $(shell pwd)
 
 #CC = "gcc -m32"
 #AR = ar

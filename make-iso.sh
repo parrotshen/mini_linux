@@ -4,24 +4,23 @@
 # from the contents of directory cdimage.
 #
 
-CDIMAGE_DIR=cdimage
+ISO_FILE=boot/$ISO
 
-if [ -d $CDIMAGE_DIR ]; then
-   echo "$CDIMAGE_DIR was exist !!"
-else
-   tar xzf $CDIMAGE_DIR.tgz -C .
+if [ ! -d $CDIMAGE_DIR ]; then
+   echo "You have to \"make config\" first !!"
+   exit
 fi
 
-if [ ! -f ./$RIMAGE  ];then
+if [ ! -f ./boot/$RIMAGE  ];then
    echo "You have to build $RIMAGE first !!"
    exit
 fi
 
-cp -f $KIMAGE $CDIMAGE_DIR/isolinux/vmlinuz
-cp -f $RIMAGE $CDIMAGE_DIR/isolinux/rootfs.gz
+cp -f ./boot/$KIMAGE $CDIMAGE_DIR/isolinux/vmlinuz
+cp -f ./boot/$RIMAGE $CDIMAGE_DIR/isolinux/rootfs.gz
 
 chmod -R +w ./$CDIMAGE_DIR
-mkisofs -o $ISO \
+mkisofs -o $ISO_FILE \
         -b isolinux/isolinux.bin \
         -c isolinux/boot.cat \
         -input-charset iso-8859-1 \
@@ -34,4 +33,4 @@ mkisofs -o $ISO \
 rm -f $CDIMAGE_DIR/isolinux/vmlinuz
 rm -f $CDIMAGE_DIR/isolinux/rootfs.gz
 
-echo "ISO generated in $ISO"
+echo "ISO generated: $ISO_FILE"
