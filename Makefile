@@ -21,6 +21,9 @@ config:
 iso:
 	@./make-iso.sh || exit 1
 
+vmdk:
+	@./make-vmdk.sh || exit 1
+
 clean:
 	sudo $(RM) -r $(ROOTFS_DIR)
 	$(RM) -r $(CDIMAGE_DIR)
@@ -35,4 +38,4 @@ help:
 	@$(ECHO) "ISO Image     = $(ISO)"
 	@$(ECHO)
 
-.PHONY: build config iso clean help
+.PHONY: config iso vmdk clean help
