@@ -32,7 +32,7 @@ clean:
 
 help:
 	@$(ECHO) "ARCH          = $(ARCH) (32-bit)"
-	@$(ECHO) "Compile       = `which gcc`"
+	@$(ECHO) "Compile       = $(shell which gcc)"
 	@$(ECHO) "Kernel Image  = $(KIMAGE)"
 	@$(ECHO) "Root-FS Image = $(RIMAGE)"
 	@$(ECHO) "ISO Image     = $(ISO)"
