@@ -1,0 +1,25 @@
+$ /usr/local/grub/sbin/grub-install --version
+grub-install (GRUB) 1.99
+
+
+#
+# Install GRUB2 to an USB disk
+#
+
+$ fdisk -lu
+
+$ mkdosfs -n GRUB2 /dev/sdb1
+
+$ mount -t vfat /dev/sdb1 /mnt/usb
+
+$ grub-install --boot-directory=/mnt/usb --force /dev/sdb
+
+$ grub-mkconfig -o /mnt/usb/grub/grub.cfg
+
+$ cp /root/grub2/grub.cfg /mnt/usb/grub/
+$ cp /root/grub2/background.png /mnt/usb/
+$ cp /root/grub2/unicode.pf2 /mnt/usb/
+$ mkdir /mnt/usb/images
+
+$ sync
+$ umount /mnt/usb

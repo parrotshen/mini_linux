@@ -3,7 +3,7 @@
 if [ -f setup.mini_linux ]; then
   PATH=/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$HOME/bin
   export PATH
-  export BASE_DIR=`pwd`
+  export BASE_DIR=$(pwd)
 
   #echo "BASE_DIR = $BASE_DIR"
 

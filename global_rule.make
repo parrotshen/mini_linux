@@ -14,7 +14,8 @@ KERNEL_CONF = i386_defconfig-$(KERNEL_VER)
 
 PWD = $(shell pwd)
 
-#CC = "gcc -m32"
+#CC = gcc
+#CC32 = "gcc -m32"
 #AR = ar
 #OBJDUMP = objdump
 #RANLIB = ranlib
