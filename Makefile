@@ -31,11 +31,13 @@ clean:
 	$(RM) ./boot/$(ISO)
 
 help:
-	@$(ECHO) "ARCH          = $(ARCH) (32-bit)"
+	@$(ECHO)
+	@$(ECHO) "ARCH          = [1;35m$(ARCH)[0m ([1;36m$(MSIZE)[0m-bit)"
 	@$(ECHO) "Compile       = $(shell which gcc)"
 	@$(ECHO) "Kernel Image  = $(KIMAGE)"
 	@$(ECHO) "Root-FS Image = $(RIMAGE)"
 	@$(ECHO) "ISO Image     = $(ISO)"
+	@$(ECHO) "ROOTFS_TYPE   = [1;32m$(ROOTFS_TYPE)[0m"
 	@$(ECHO)
 
 .PHONY: config iso vmdk clean help
