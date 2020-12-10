@@ -1,7 +1,8 @@
 
 USB bootable flash disk.
 
-1) Linux - MINI (RAM Disk)
-2) Memory Test
-3) Local Boot
+1) Linux-2.6.29 (RAM Disk)
+2) Linux-3.19.8 (RAM Disk)
+3) Memory Test
+4) Local Boot
 

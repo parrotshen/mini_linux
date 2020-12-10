@@ -1,14 +1,15 @@
 
 PWD = $(shell pwd)
 
-#CC = gcc
-#CC32 = "gcc -m32"
-#AR = ar
-#OBJDUMP = objdump
-#RANLIB = ranlib
-#STRIP = strip
-#NM = nm
-#LD = ld
+#CROSS = 
+#CC = $(CROSS)gcc
+#CC32 = "$(CROSS)gcc -m32"
+#AR = $(CROSS)ar
+#OBJDUMP = $(CROSS)objdump
+#RANLIB = $(CROSS)ranlib
+#STRIP = $(CROSS)strip
+#NM = $(CROSS)nm
+#LD = $(CROSS)ld
 
 MV = mv
 LN = ln
