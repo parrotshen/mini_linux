@@ -6,7 +6,7 @@ all: err
 	@sudo echo dummy > /dev/null || \
         (echo "Get root privilege failure! Plz Ctrl-C."; exit 1) && \
         (echo "Get root privilege success."; sleep 1)
-	@./mkrootfs.sh || exit 1
+	@./make-rootfs.sh || exit 1
 
 err:
 	@test -n $(BASE_DIR) || \

@@ -1,5 +1,7 @@
 include $(BASE_DIR)/global_rule.make
 
+KERNEL_URL = https://mirrors.edge.kernel.org/pub/linux/kernel
+
 
 all: err
 	@$(MAKE) -C $(KERNEL_SRC) ARCH=$(ARCH)
@@ -10,7 +12,7 @@ menuconfig: err
 
 config:
 	@test -f $(KERNEL_SRC).tar.xz || \
-        wget --no-check-certificate https://mirrors.edge.kernel.org/pub/linux/kernel/$(KERNEL_VER)/$(KERNEL_SRC).tar.xz
+        wget --no-check-certificate $(KERNEL_URL)/$(KERNEL_VER)/$(KERNEL_SRC).tar.xz
 	@test -d $(KERNEL_SRC) || tar xJvf $(KERNEL_SRC).tar.xz
 	@$(CP) $(KERNEL_CONF) $(KERNEL_SRC)/arch/$(ARCH)/configs/mini_defconfig
 	@$(MAKE) -C $(KERNEL_SRC) ARCH=$(ARCH) mini_defconfig
