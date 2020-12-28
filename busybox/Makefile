@@ -15,7 +15,7 @@ menuconfig: err
 
 config:
 	@test -f $(BUSYBOX_SRC).tar.bz2 || \
-        wget --no-check-certificate $(BUSYBOX_URL)/$(BUSYBOX_VER)/$(BUSYBOX_SRC).tar.bz2
+        wget --no-check-certificate $(BUSYBOX_URL)/$(BUSYBOX_SRC).tar.bz2
 	@test -d $(BUSYBOX_SRC) || tar xjvf $(BUSYBOX_SRC).tar.bz2
 	@$(CP) $(BUSYBOX_CONF) $(BUSYBOX_SRC)/.config
 
