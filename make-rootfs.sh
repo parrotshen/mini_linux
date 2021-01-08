@@ -3,6 +3,7 @@
 #
 # following variables are defined in global_rule.make
 # $PLATFORM
+# $KERNEL_REL
 # $RIMAGE
 # $ROOTFS_DIR
 # $ROOTFS_TYPE
@@ -32,6 +33,13 @@ echo ""
 
 
 #===============================================================================
+# create the directory for module probe
+
+sudo mkdir -p $ROOTFS_DIR/lib/modules/$KERNEL_REL
+sudo mkdir -p $ROOTFS_DIR/lib/modules/$KERNEL_REL/extra
+
+
+#===============================================================================
 # create ext3 filesystem
 
 if [ $ROOTFS_TYPE = "initrd" ]; then
@@ -58,6 +66,7 @@ if [ $ROOTFS_TYPE = "initrd" ]; then
  # compress the initrd image
  gzip -9 -c $INITRD_IMG > ./boot/$RIMAGE
  gzip -l ./boot/$RIMAGE
+ echo
  
  # clean the temporary files
  if [ -d $INITRD_DIR ]; then
@@ -77,6 +86,7 @@ elif [ $ROOTFS_TYPE = "initramfs" ]; then
  ## compress the image
  gzip -9 -c $RAMROOTFS > ./boot/$RIMAGE
  gzip -l ./boot/$RIMAGE
+ echo
 
  # clean the temporary files
  if [ -f $RAMROOTFS ]; then

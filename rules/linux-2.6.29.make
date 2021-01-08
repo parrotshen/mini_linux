@@ -15,4 +15,5 @@ export ISO = $(PLATFORM).iso
 export CDIMAGE_DIR = cdimage
 export ROOTFS_DIR = target-root
 export ROOTFS_TYPE = initrd
+export KERNEL_REL
 

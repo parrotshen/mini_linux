@@ -37,7 +37,7 @@ help:
 	@$(ECHO) "Kernel Image  = $(KIMAGE)"
 	@$(ECHO) "Root-FS Image = $(RIMAGE)"
 	@$(ECHO) "ISO Image     = $(ISO)"
-	@$(ECHO) "ROOTFS_TYPE   = [1;32m$(ROOTFS_TYPE)[0m"
+	@$(ECHO) "Root-FS Type  = [1;32m$(ROOTFS_TYPE)[0m"
 	@$(ECHO)
 
 .PHONY: config iso vmdk clean help
