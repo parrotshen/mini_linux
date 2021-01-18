@@ -27,6 +27,8 @@ vmdk:
 clean:
 	sudo $(RM) -r $(ROOTFS_DIR)
 	$(RM) -r $(CDIMAGE_DIR)
+
+distclean: clean
 	$(RM) ./boot/$(RIMAGE)
 	$(RM) ./boot/$(ISO)
 
@@ -40,4 +42,4 @@ help:
 	@$(ECHO) "Root-FS Type  = [1;32m$(ROOTFS_TYPE)[0m"
 	@$(ECHO)
 
-.PHONY: config iso vmdk clean help
+.PHONY: config iso vmdk clean distclean help
