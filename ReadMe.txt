@@ -54,6 +54,7 @@ rm ramrootfs.bin
 3) Disk partition and format
 
 # Partition the USB disk
+sudo fdisk -lu
 sudo fdisk /dev/sdb
 
 # Format the USB disk
@@ -63,12 +64,13 @@ sudo mount -t vfat /dev/sdb1 /mnt/usb
 
 4) Install bootloader GRUB2
 
-sudo grub-install --boot-directory=/mnt/usb --no-floppy --force /dev/sdb
-sudo grub-mkconfig -o /mnt/usb/grub/grub.cfg
-sudo cp grub.cfg /mnt/usb/grub/grub.cfg
-sudo cp background.png /mnt/usb
-sudo cp unicode.pf2 /mnt/usb
-sudo vi /mnt/usb/grub/grub.cfg
+# Install to the directory /boot in the USB disk
+sudo grub-install --boot-directory=/mnt/usb/boot --no-floppy --force /dev/sdb
+sudo grub-mkconfig -o /mnt/usb/boot/grub/grub.cfg
+sudo cp grub.cfg /mnt/usb/boot/grub/grub.cfg
+sudo cp background.png /mnt/usb/boot/
+sudo cp unicode.pf2 /mnt/usb/boot/
+sudo vi /mnt/usb/boot/grub/grub.cfg
 # menuentry "Linux (RAM Disk)" {
 #     set root='(hd0,1)'
 #     linux  /boot/bzImage root=/dev/ram0 rw
@@ -79,9 +81,8 @@ sudo vi /mnt/usb/grub/grub.cfg
 5) System setup
 
 # Copy Linux kernel and root filesystem image
-sudo mkdir /mnt/usb/boot
-sudo cp bzImage /mnt/usb/boot
-sudo cp rfsImage /mnt/usb/boot
+sudo cp bzImage /mnt/usb/boot/
+sudo cp rfsImage /mnt/usb/boot/
 sudo sync
 sudo umount /mnt/usb
 
